@@ -1,4 +1,6 @@
 before_install:
+  - sdk install java 21.0.11-zulu
+  - sdk use java 21.0.11-zulu
   - curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.6/mill-dist-1.1.6-mill.sh -o mill && chmod +x mill
 install:
   - ./mill _.publishM2Local
