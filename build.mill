@@ -2,7 +2,7 @@
 //| - com.typesafe:config:1.4.3
 import mill._
 import mill.scalalib._
-import os._
+import publish._
 
 val spinalVersion = "1.12.0"
 
@@ -13,7 +13,7 @@ object ivys {
   val spinalPlugin = ivy"com.github.spinalhdl::spinalhdl-idsl-plugin:$spinalVersion"
 }
 
-object systemrdl_spinal extends ScalaModule {
+object systemrdl_spinal extends ScalaModule with PublishModule {
   def scalaVersion = ivys.sv
 
   override def ivyDeps = Agg(
@@ -24,4 +24,17 @@ object systemrdl_spinal extends ScalaModule {
   override def scalacPluginIvyDeps = Agg(
     ivys.spinalPlugin,
   )
+
+  def publishVersion = "0.1.1"
+
+  def pomSettings = PomSettings(
+    description = "Scala library for peakrdl regblock shim",
+    organization = "com.github.parthkalgaonkar",
+    url = "https://github.com",
+    licenses = Seq(License.MIT),
+    versionControl = VersionControl.github("parthkalgaonkar", "systemrdl-spinal-scala"),
+    developers = Seq(
+      Developer("parthkalgaonkar", "Parth Kalgaonkar", "https://github.com")
+      )
+    )
 }
