@@ -17,7 +17,7 @@ class PeakrdlRegblockShim[T_in <: Bundle, T_out <: Bundle](
     val hwif_out = out (out_type())
   }
 
-  mapCurrentClockDomain(io.clk, io.rst)
+  mapCurrentClockDomain(io.clk, io.rst, resetActiveLevel = ClockDomain.current.resetActiveLevel)
 
   noIoPrefix()
 }
