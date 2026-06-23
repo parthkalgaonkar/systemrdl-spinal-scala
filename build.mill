@@ -25,7 +25,7 @@ object systemrdl_spinal extends ScalaModule with PublishModule {
     ivys.spinalPlugin,
   )
 
-  def publishVersion = "0.1.8"
+  def publishVersion = "0.1.9"
 
   def pomSettings = PomSettings(
     description = "Scala library for peakrdl regblock shim",
